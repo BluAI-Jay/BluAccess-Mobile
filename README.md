@@ -1,5 +1,50 @@
 # BluAccess-Mobile
 
+## How to run locally (quick commands for zsh)
+
+Prerequisites:
+- Node >= 20 (use `nvm`, `volta` or `asdf` to switch if needed)
+- Xcode (for iOS), Android SDK / Android Studio (for Android)
+
+Install JS dependencies:
+```zsh
+npm ci
+# or
+npm install
+```
+
+Start Metro (in a dedicated terminal):
+```zsh
+npx react-native start
+```
+
+iOS (macOS) — install CocoaPods and run:
+```zsh
+# from repo root
+cd ios
+# optional: if the repo uses bundler for CocoaPods
+bundle install || true
+bundle exec pod install --repo-update
+cd ..
+npx react-native run-ios
+```
+
+Android:
+```zsh
+npx react-native run-android
+```
+
+Run tests and lint:
+```zsh
+npm test
+npm run lint
+```
+
+Quick node version check:
+```zsh
+node -v
+```
+
 #### IOS Setup
 ## Reset Cache 
 killall node
