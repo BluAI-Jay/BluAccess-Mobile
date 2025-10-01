@@ -1,16 +1,17 @@
 import React, { useContext } from 'react';
-import { View, Text, Button, TextInput } from 'react-native';
+import { View, Text, Button, Image, TextInput } from 'react-native';
 import { AuthContext } from '../../utils/useAuthContext';
+import logo from '../../assets/logo.png';
 
 export default function SalesmanLogin({ navigation }) {
   const { login } = useContext(AuthContext);
   return (
     <View style={{ flex: 1, backgroundColor: '#8eb9e5ff', paddingTop: 24 }}>
       <View style={{ height: "30%", backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center' }}>
-        {/* <Image
+        <Image
               source={logo}
               style={{ width: 120, height: 120, alignSelf: 'center', marginBottom: 16 }}
-            /> */}
+            />
       </View>
       <View style={{ flex: 1, justifyContent: "center", backgroundColor: '#f4f6f8', padding: 16, gap: 8 }}>
         <Text style={{ fontSize: 24, textAlign: "center", fontWeight: 600 }}>Welcome to EAMMS for Sales</Text>
