@@ -90,14 +90,13 @@ export default function Visits() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
-        <View style={styles.headerCard}>
-          <Text style={styles.headerSubtitleHeading}>Manage and track your field visits</Text>
-          <View style={[styles.headerActionsLeft, { marginTop: 12 }] }>
-            <TouchableOpacity style={[styles.headerActionButton, { backgroundColor: '#0c2b4cff', marginRight: 8 }]}>
+        <View style={styles.topActions}>
+          <View style={styles.headerActionsLeft}>
+            <TouchableOpacity style={[styles.headerActionButton, { backgroundColor: '#0c2b4cff', marginRight: 8 }]}> 
               <Icon name="compass-outline" size={16} color="#fff" />
               <Text style={styles.bigButtonText}>Plan Route</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.headerActionButton, { backgroundColor: '#10b981' }]}>
+            <TouchableOpacity style={[styles.headerActionButton, { backgroundColor: '#10b981' }]}> 
               <Icon name="checkmark-done-outline" size={16} color="#fff" />
               <Text style={styles.bigButtonText}>Check In</Text>
             </TouchableOpacity>
@@ -151,6 +150,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     elevation: 2,
   },
+  topActions: { width: '100%', marginBottom: 12 },
   headerActionsLeft: { flexDirection: 'row', width: '100%' },
   headerHeadingWrap: { flex: 1, alignItems: 'flex-start', marginLeft: 12 },
   headerSubtitleHeading: { fontSize: 18, fontWeight: '700' },

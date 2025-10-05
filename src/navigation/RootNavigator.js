@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { navigationRef } from './EmployeeAppStack';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AuthContext } from '../utils/useAuthContext';
 import AuthStack from './AuthStack';
@@ -12,7 +13,7 @@ export default function RootNavigator() {
   const { user } = useContext(AuthContext);
 
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {user === null ? (
           <Stack.Screen name="Auth" component={AuthStack} />

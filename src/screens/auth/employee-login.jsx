@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, ScrollView, Dimensions, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { AuthContext } from '../../utils/useAuthContext';
 import logo from '../../assets/logo.png';
@@ -72,22 +72,11 @@ export default function EmployeeLogin({ navigation }) {
               <Text style={styles.primaryText}>Log in</Text>
             </TouchableOpacity>
 
+            <View style={styles.orRow}><View style={styles.orLine} /><Text style={styles.orText}>OR</Text><View style={styles.orLine} /></View>
+
             <TouchableOpacity style={styles.primaryButton} onPress={() => navigation.replace('SalesmanLogin')}>
               <Text style={styles.primaryText}>Go to Salesman</Text>
             </TouchableOpacity>
-
-            <View style={styles.orRow}><View style={styles.orLine} /><Text style={styles.orText}>OR</Text><View style={styles.orLine} /></View>
-
-            <TouchableOpacity style={styles.ssoButton}>
-              <Text style={styles.ssoText}>SSO enterprises</Text>
-            </TouchableOpacity>
-
-            <View style={styles.secondaryRow}>
-              <TouchableOpacity style={styles.ghostButton}><Text style={styles.ghostText}>Admin Login</Text></TouchableOpacity>
-              <TouchableOpacity style={styles.ghostButton}><Text style={styles.ghostText}>Guest Sign up</Text></TouchableOpacity>
-            </View>
-
-            <TouchableOpacity style={styles.faceButton}><Text style={styles.faceText}>Face Recognition</Text></TouchableOpacity>
           </View>
         </View>
       </ScrollView>
@@ -99,11 +88,20 @@ const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#f3f6f8' },
   container: { padding: 16, alignItems: 'center', justifyContent: 'center' },
   card: { width: '95%', maxWidth: 520, backgroundColor: '#fff', borderRadius: 12, overflow: 'hidden', flexDirection: 'column', elevation: 3 },
-  brandArea: { padding: 24, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fafbfd' },
-  formArea: { padding: 20 },
-  logo: { width: 110, height: 44, marginBottom: 10 },
-  brandTitle: { fontWeight: '700', marginTop: 12 },
-  brandSubtitle: { color: '#6b7280', marginTop: 8, textAlign: 'center', fontSize: 12 },
+  brandWrap: { 
+    height: Dimensions.get('window').height * 0.3,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    paddingHorizontal: 20,
+    paddingTop: Platform.OS === 'ios' ? 18 : 12,
+    // kept simple: no rounded corners or shadow to avoid a card-like appearance
+  },
+  formArea: { padding: 20, marginTop: 8 },
+  logo: { width: 180, height: 72, marginBottom: 14 },
+  brandTitle: { fontWeight: '800', marginTop: 10, fontSize: 26, textAlign: 'center', color: '#0f172a' },
+  brandSubtitle: { color: '#6b7280', marginTop: 8, textAlign: 'center', fontSize: 15, maxWidth: 560, lineHeight: 20 },
   heading: { fontSize: 18, fontWeight: '800', textAlign: 'center' },
   subheading: { color: '#9ca3af', textAlign: 'center', marginBottom: 12 },
   inputRow: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#fff', borderRadius: 999, paddingHorizontal: 12, paddingVertical: 12, marginBottom: 12, borderWidth: 1, borderColor: '#eef2f7' },
